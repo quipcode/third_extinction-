@@ -7,6 +7,7 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 
 var route = require('./routes/index');
+var timeline = require('./routes/timeline');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 
 app.use('/', route);
+app.use('/timeline', timeline);
 
 app.listen(port, function(){
   console.log('Listening on port ' + port);
