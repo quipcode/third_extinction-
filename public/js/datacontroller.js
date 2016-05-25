@@ -10,7 +10,7 @@ function DataController($http, $stateParams){
 
   $http({
     method: 'GET',
-    url: 'http://api.gbif.org/v1/map/density/tile?x=300&y=200&z=100&type=TAXON&key=1&layer=OBS_2010_2020&layer=LIVING&layer=FOSSIL&palette=yellows_reds',
+    url: 'http://api.gbif.org/v1/map/density/tile?x=0&y=0&z=1&type=TAXON&key=1&layer=OBS_2010_2020&layer=LIVING&layer=FOSSIL&palette=yellows_reds',
   }).then(function successCallback(response) {
     self.results = response.data;
     console.log(self.results);
