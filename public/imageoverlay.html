@@ -20,7 +20,7 @@
   <body>
     <div id="map"></div>
     <script>
-
+    var GOOGLE_MAPS_API = process.env.GOOGLE_MAPS_API_KEY;
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
@@ -52,7 +52,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh9RK7PxZyfL7e30krLpPoXoU2YSqcnQo&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_MAPS_API + "&callback=initMap">
     </script>
   </body>
 </html>

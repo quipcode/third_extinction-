@@ -15,6 +15,7 @@ controller.create = function(req, res, next) {
   User.create({
     email: req.body.email,
     name: req.body.name,
+    password: req.body.password
   })
   .then(function(user){
     res.json(user);
