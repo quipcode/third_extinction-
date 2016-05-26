@@ -17,8 +17,10 @@ var server = http.createServer(app);
 
 server.listen(port);
 
-
-app.set('port', port);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+// app.set('port', port);
 
 mongoose.connect('mongodb://localhost/third_extinction');
 
@@ -27,7 +29,7 @@ var users = require('./routes/users');
 var token = require('./routes/token');
 var route = require('./routes/index');
 var timeline = require('./routes/timeline');
-var map = require('./routes/map')
+var map = require('./routes/map');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
