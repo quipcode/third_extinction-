@@ -61,6 +61,15 @@ var allowCrossDomain = function(req, res, next) {
 };
 app.use(allowCrossDomain);
 
+app.all('/*', function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Pragma, X-Requested-With");
+        res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+        res.header('Access-Control-Allow-Credentials', 'false');
+        res.header('Access-Control-Max-Age', '86400');
+        next();
+      });
+
 // app.use(function(req, res, next) {
 //   res.header('Access-Control-Allow-Origin',  '*');
 //   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

@@ -22,17 +22,29 @@ controller.findUser = function(req, res, next) {
 };
 
 controller.validateUser = function(req, res, next) {
-  req.user.verifyPassword(req.body.password, function(err, valid){
-    console.log(err, valid);
-    if (!valid) {
-      next({
-        status:  401,
-        message: 'Authentication failed: credentials incorrect'
-      });
-    } else {
-      next();
-    }
-  });
+      console.log(req.body.password)
+      if (req.user.password != req.body.password) {
+        res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+      } else {
+
+        // if user is found and password is right
+        // create a token
+        var token = jwt.sign(user, app.get('superSecret'), {
+          expiresInMinutes: 1440 // expires in 24 hours
+        });
+      }
+  // req.user.verifyPassword(req.body.password, function(err, valid){
+  //   console.log(err, valid);
+  //   if (!valid) {
+  //     next({
+  //       status:  401,
+  //       message: 'Authentication failed: credentials incorrect'
+  //     });
+  //   } else {
+  //     res.json({Message: "here"});
+  //     // next();
+  //   }
+  // });
 };
 
 controller.create = function(req, res, next) {

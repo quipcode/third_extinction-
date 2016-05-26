@@ -4,6 +4,7 @@ angular
 
 TimelineController.$inject = ['$http'];
 
+
 function TimelineController($http){
   var self = this;
   self.hope = ["this is a controller"];
@@ -18,17 +19,29 @@ function TimelineController($http){
   }
 
   function goHome(){
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/'
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
-    $http
+    $http.get('https://www.google.com/')
+     .then(
+       function(response){
+         // success callback
+         console.log(response);
+         // localStorage.setItem("response", JSON.stringify(response));
+       },
+       function(response){
+         // failure callback
+         console.log(response);
+       }
+    );
+    // $http({
+    //   method: 'GET',
+    //   url: 'http://www.google.com/'
+    // }).then(function successCallback(response) {
+    //     // this callback will be called asynchronously
+    //     // when the response is available
+    //     console.log("hi")
+    //   }, function errorCallback(response) {
+    //     // called asynchronously if an error occurs
+    //     // or server returns response with an error status.
+    //   });
   }
 }
 

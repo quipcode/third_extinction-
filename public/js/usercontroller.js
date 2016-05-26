@@ -18,7 +18,7 @@ function UserController($http){
     // var parsed = JSON.parse(data2);
     console.log(data2);
     // console.log(parsed);
-    $http.post('http://localhost:3000/token')
+    $http.post('http://localhost:3000/token', data2)
      .then(
        function(response){
          // success callback
