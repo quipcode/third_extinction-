@@ -17,10 +17,10 @@ var server = http.createServer(app);
 
 server.listen(port);
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
-// app.set('port', port);
+// app.listen(process.env.PORT || 3000, function(){
+//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// });
+app.set('port', port);
 
 mongoose.connect('mongodb://localhost/third_extinction');
 
@@ -62,30 +62,4 @@ var allowCrossDomain = function(req, res, next) {
    next();
 };
 app.use(allowCrossDomain);
-
-app.all('/*', function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Pragma, X-Requested-With");
-        res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
-        res.header('Access-Control-Allow-Credentials', 'false');
-        res.header('Access-Control-Max-Age', '86400');
-        next();
-      });
-
-// app.use(function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin',  '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-
-//   if ('OPTIONS' == req.method) {
-//     res.send(200);
-//   } else {
-//     next();
-//   }
-// });
-
-
-
-
-
 
