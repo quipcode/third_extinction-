@@ -6,7 +6,7 @@ UserController.$inject = ['$http'];
 
 function UserController($http){
   var self = this;
-  self.email = 'h';
+  self.email = '';
   self.password = '';
   self.submitIt = submitIt;
   // self.data2 = {email: self.email, password: self.password};

@@ -6,5 +6,8 @@ var token = require('../controllers/token_controller');
 /* GET users listing. */
 router.get('/', users.index);
 router.post('/', users.create);
+router.get('/login', function(req,res){
+  res.render('login_page');
+})
 
 module.exports = router;
