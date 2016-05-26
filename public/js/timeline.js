@@ -21,8 +21,8 @@
     for (var i = 0; i < items.length; i++) {
       if (isElementInViewport(items[i])) {
         items[i].classList.add("in-view");
-
       }
+
     }
   }
   // listen for events

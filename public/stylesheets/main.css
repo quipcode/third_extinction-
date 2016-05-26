@@ -12,7 +12,16 @@ body {
   color: #fff;
   overflow-x: hidden;
   padding-bottom: 50px;
-}  /* INTRO SECTION
+}
+
+#megabox{
+  height: 350px;
+  width: 250px
+}
+
+  /* INTRO SECTION
+}
+
 
 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -24,7 +33,7 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 50%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -40,7 +49,7 @@ h1 {
 
 .timeline ul {
   background: #456990;
-  padding: 50px 0;
+  padding: 5px 0;
 }
 
 .timeline ul li {
@@ -135,6 +144,12 @@ time {
 }
 
 .timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+.timeline ul li.ng-scope.in-view div {
   transform: none;
   visibility: visible;
   opacity: 1;
