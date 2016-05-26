@@ -3,6 +3,7 @@ var User = require('../models/user');
 var secret = "shhh";
 var controller = {};
 
+
 controller.findUser = function(req, res, next) {
   User.findOne({email: req.body.email})
     .then(function(user){

@@ -4,23 +4,23 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var db = require('./db');
 var path = require('path');
+// var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var port = normalizePort(process.env.PORT || 3000);
-var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
-var debug = require('debug')('third_extinction:server');
+
 var http = require('http');
 
-// var server = http.createServer(app);
+var server = http.createServer(app);
 
-// app.set('port', port);
+server.listen(port);
 
-// server.listen(port);
-// server.on('error', onError);
-// server.on('listening', onListening);
 
+app.set('port', port);
+
+mongoose.connect('mongodb://localhost/third_extinction');
 
 
 var users = require('./routes/users');
@@ -28,27 +28,26 @@ var token = require('./routes/token');
 var route = require('./routes/index');
 var timeline = require('./routes/timeline');
 
-mongoose.connect('mongodb://localhost/third_extinction');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname + '/public')));
 
 app.use(bodyParser.json());
-app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname + '/public')));
+app.use(morgan('combined'));
 
 app.use('/', route);
 app.use('/timeline', timeline);
 app.use('/token', token);
 app.use('/users', users);
 
-// app.use(cookieParser('notsosecretnowareyou'));
-// app.use(session({
-//   secret: 'anotherfoolishsecret',
-//   saveUninitialized: true,
-//   resave: true
-// }));
+app.use(cookieParser('notsosecretnowareyou'));
+app.use(session({
+  secret: 'anotherfoolishsecret',
+  saveUninitialized: true,
+  resave: true
+}));
 
 // CORS (allows the separate client to send requests)…
 app.use(function(req, res, next) {
@@ -63,9 +62,83 @@ app.use(function(req, res, next) {
   }
 });
 
-app.listen(port, function(){
-  console.log('Listening on port ' + port);
-});
+
+
+
+
+
+// app.listen(port, function(){
+//   console.log('Listening on port ' + port);
+// });
+
+// var express = require('express');
+// var app = express();
+// var bodyParser = require('body-parser');
+// var morgan = require('morgan');
+// var db = require('./db');
+// var path = require('path');
+// var session = require('express-session');
+// var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var port = normalizePort(process.env.PORT || 3000);
+// var port = process.env.PORT || 3000;
+// var mongoose = require('mongoose');
+// var debug = require('debug')('third_extinction:server');
+// var http = require('http');
+
+// var server = http.createServer(app);
+
+// app.set('port', port);
+
+// server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);
+
+
+
+// var users = require('./routes/users');
+// var token = require('./routes/token');
+// var route = require('./routes/index');
+// var timeline = require('./routes/timeline');
+
+// mongoose.connect('mongodb://localhost/third_extinction');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
+
+
+// app.use(bodyParser.json());
+// app.use(morgan('combined'));
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.static(path.join(__dirname + '/public')));
+
+// app.use('/', route);
+// app.use('/timeline', timeline);
+// app.use('/token', token);
+// app.use('/users', users);
+
+// // app.use(cookieParser('notsosecretnowareyou'));
+// // app.use(session({
+// //   secret: 'anotherfoolishsecret',
+// //   saveUninitialized: true,
+// //   resave: true
+// // }));
+
+// // CORS (allows the separate client to send requests)…
+// app.use(function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin',  '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+
+//   if ('OPTIONS' == req.method) {
+//     res.send(200);
+//   } else {
+//     next();
+//   }
+// });
+
+// // app.listen(port, function(){
+// //   console.log('Listening on port ' + port);
+// // });
 
 
 
@@ -100,9 +173,9 @@ app.listen(port, function(){
 //   });
 // });
 
-/**
- * Normalize a port into a number, string, or false.
- */
+// // /**
+// //  * Normalize a port into a number, string, or false.
+// //  */
 
 // function normalizePort(val) {
 //   var port = parseInt(val, 10);
