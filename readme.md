@@ -25,6 +25,10 @@ Map:
 Map:
 ![alt text](http://www.theodora.com/maps/new9/time_zones_4.jpg"map overlayed with living animals")
 
+he title text):
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 Timeline:
 ![alt text](Screen Shot 2016-05-26 at 11.24.27 PM.png "timeline of extinct animals in past 100yrs")
