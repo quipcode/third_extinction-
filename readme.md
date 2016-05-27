@@ -21,6 +21,11 @@ User will be able to access their social media accounts and make donationg via p
 
 Map:
 ![alt text](Screen Shot 2016-05-26 at 11.24.16 PM.png "map overlayed with living animals")
+
+Map:
+![alt text](http://www.theodora.com/maps/new9/time_zones_4.jpg"map overlayed with living animals")
+
+
 Timeline:
 ![alt text](Screen Shot 2016-05-26 at 11.24.27 PM.png "timeline of extinct animals in past 100yrs")
 
