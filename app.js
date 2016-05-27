@@ -17,12 +17,10 @@ var server = http.createServer(app);
 
 server.listen(port);
 
-// app.listen(process.env.PORT || 3000, function(){
-//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
+
 app.set('port', port);
 
-mongoose.connect('mongodb://localhost/third_extinction');
+mongoose.connect(process.env.MONGOLAB_RED_URI || 'mongodb://localhost/third_extinction');
 
 
 var users = require('./routes/users');
