@@ -5,19 +5,20 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
-  <!-- Latest compiled and minified CSS -->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
       #map {
         height: 350px;
         width: 250px;
+        background-color: #F45B69;
       }
 
       #presentmap{
         height: 350px;
         width: 250px;
         float: right;
-        background-color: pink;
+        background-color: #F45B69;
       }
 
 
@@ -35,13 +36,32 @@
         margin: auto;
       }
 
+      body {
+
+        background: #456990;
+      }
+
+      #map-title {
+        width: 50%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+      }
+
+      #map-footer {
+
+        width: 50%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+
+      }
     </style>
 </head>
 <body>
 
-<a href="users/login" title="">login</a>
-<a href="map" title="">Map</a>
-<a href="timeline" title="">Timeline</a>
 
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -79,15 +99,18 @@
         <!-- /.container-fluid -->
     </nav>
 
-  <section class="timeline">
-
-
-  </section>
+<div id="map-title">
+<h1>Compare the maps below</h1>
+</div>
 
     <div id="wrapper">
         <div id="presentmap"></div>
         <div id="map"></div>
     </div>
+
+<div id="map-footer">
+  <p>The left map is an overlay of documented animals since 1900 the right map is an overlay of current doumented animals </p>
+</div>
 
 <script>
 
