@@ -28,6 +28,7 @@ var token = require('./routes/token');
 var route = require('./routes/index');
 var timeline = require('./routes/timeline');
 var map = require('./routes/map');
+var volunteer = require('./routes/volunteer');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -43,6 +44,7 @@ app.use('/timeline', timeline);
 app.use('/token', token);
 app.use('/users', users);
 app.use('/map', map);
+app.use('/volunteer', volunteer);
 
 app.use(cookieParser('notsosecretnowareyou'));
 app.use(session({
